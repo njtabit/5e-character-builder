@@ -1,0 +1,19 @@
+#nav-tabs {
+  margin-bottom: -2px;
+}
+
+.tab {
+  display: inline-block;
+  width: calc((100%/12) - 4px;);
+  margin: 0 1px;
+  border: solid #cdcdcd 1px;
+  border-bottom: none;
+  padding: 3px 0;
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 9pt;
+}
+
+.tab.activeTab {
+  background-color: #5c5c5c;
+}

@@ -1,0 +1,13 @@
+#app-container {
+  border: 2px solid #cdcdcd;
+  overflow: hidden;
+  padding: 10px;
+
+  p {
+    margin: 0;
+  }
+}
+
+#app-container.mobile {
+  width: 100%
+}
