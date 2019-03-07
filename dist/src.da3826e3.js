@@ -28352,88 +28352,72 @@ exports.connectAdvanced = _connectAdvanced2.default;
 exports.ReactReduxContext = _Context.ReactReduxContext;
 exports.connect = _connect2.default;
 },{"./components/Provider":"../node_modules/react-redux/es/components/Provider.js","./components/connectAdvanced":"../node_modules/react-redux/es/components/connectAdvanced.js","./components/Context":"../node_modules/react-redux/es/components/Context.js","./connect/connect":"../node_modules/react-redux/es/connect/connect.js"}],"tabs.js":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Tabs = undefined;
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Tabs = function Tabs() {
-  return _react2.default.createElement(
-    "nav",
-    { id: "nav-tabs" },
-    _react2.default.createElement(
-      "span",
-      { id: "home-tab", "class": "tab activeTab leftTab" },
-      "Home"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "close-tab", "class": "tab" },
-      "Race"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "class-tab", "class": "tab" },
-      "Class"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "background-tab", "class": "tab" },
-      "Background"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "abilities-tab", "class": "tab" },
-      "Abilities"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "feats-tab", "class": "tab" },
-      "Feats"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "proficiencies-tab", "class": "tab" },
-      "Proficiencies"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "style-tab", "class": "tab" },
-      "Style"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "hp-tab", "class": "tab" },
-      "HP"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "spells-tab", "class": "tab" },
-      "Spells"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "equip-tab", "class": "tab" },
-      "Equipment"
-    ),
-    _react2.default.createElement(
-      "span",
-      { id: "char-tab", "class": "tab rightTab" },
-      "Info"
-    )
+  var newTab = function newTab(name) {
+    for (var _len = arguments.length, classes = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      classes[_key - 1] = arguments[_key];
+    }
+
+    var classnames = classes.join(' ');
+    return _react2.default.createElement(
+      'span',
+      { id: name.toLowerCase() + '-tab', className: classnames + ' tab', onClick: handleClick },
+      name
+    );
+  };
+
+  var handleClick = function handleClick(e) {
+    console.log(e);
+    console.log(e.target.id);
+    Root.props.switchTabs();
+  };
+
+  var tabset = _react2.default.createElement(
+    'nav',
+    { id: 'nav-tabs' },
+    newTab('Home', 'lefttab'),
+    newTab('Race'),
+    newTab('Class'),
+    newTab('Background'),
+    newTab('Stats'),
+    newTab('Feats'),
+    newTab('Proficiencies'),
+    newTab('Misc'),
+    newTab('Spells'),
+    newTab('Equipment'),
+    newTab('Info', 'righttab')
   );
+
+  return tabset;
 };
 
 exports.Tabs = Tabs;
-},{"react":"../node_modules/react/index.js"}],"root.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"state/actions/switchTabs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  return function (dispatch, getState) {
+    console.log(dispatch);
+  };
+};
+},{}],"root.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28464,6 +28448,10 @@ var _reactRedux = require('react-redux');
 
 var _tabs = require('./tabs');
 
+var _switchTabs = require('./state/actions/switchTabs');
+
+var _switchTabs2 = _interopRequireDefault(_switchTabs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Root = function (_Component) {
@@ -28492,6 +28480,7 @@ var Root = function (_Component) {
       return app;
     };
 
+    _this.state = { tab: 'Home' };
     return _this;
   }
 
@@ -28505,13 +28494,15 @@ var Root = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    tab: state.app.tab
+  };
 };
 
-var mapDispatchToProps = {};
+var mapDispatchToProps = { switchTabs: _switchTabs2.default };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Root);
-},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","./tabs":"tabs.js"}],"../node_modules/redux-devtools-extension/index.js":[function(require,module,exports) {
+},{"babel-runtime/helpers/classCallCheck":"../node_modules/babel-runtime/helpers/classCallCheck.js","babel-runtime/helpers/createClass":"../node_modules/babel-runtime/helpers/createClass.js","babel-runtime/helpers/possibleConstructorReturn":"../node_modules/babel-runtime/helpers/possibleConstructorReturn.js","babel-runtime/helpers/inherits":"../node_modules/babel-runtime/helpers/inherits.js","react":"../node_modules/react/index.js","react-redux":"../node_modules/react-redux/es/index.js","./tabs":"tabs.js","./state/actions/switchTabs":"state/actions/switchTabs.js"}],"../node_modules/redux-devtools-extension/index.js":[function(require,module,exports) {
 "use strict";
 
 var compose = require('redux').compose;
@@ -28732,7 +28723,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54688' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51852' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

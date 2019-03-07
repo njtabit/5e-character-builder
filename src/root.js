@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Tabs} from './tabs'
+import { Tabs } from './tabs'
+import switchTabs from './state/actions/switchTabs'
 
 class Root extends Component {
   constructor() {
     super()
+    this.state = {tab: 'Home'}
   }
 
   renderApp = () => {
@@ -32,9 +34,9 @@ class Root extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+  tab: state.app.tab
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {switchTabs}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root)

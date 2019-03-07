@@ -1,21 +1,33 @@
 import React, { Component } from 'react'
+
 const Tabs = () => {
-  return (
+  const newTab = (name, ...classes) => {
+    const classnames = classes.join(' ')
+    return (<span id={name.toLowerCase() + '-tab'} className={classnames + ' tab'} onClick={handleClick} >{name}</span>)
+  }
+
+  const handleClick = (e) => {
+    console.log(e)
+    console.log(e.target.id)
+    Root.props.switchTabs()
+  }
+
+  const tabset =
     <nav id="nav-tabs">
-     <span id="home-tab" class="tab activeTab leftTab">Home</span>
-     <span id="close-tab" class="tab">Race</span>
-     <span id="class-tab" class="tab">Class</span>
-     <span id="background-tab" class="tab">Background</span>
-     <span id="abilities-tab" class="tab">Abilities</span>
-     <span id="feats-tab" class="tab">Feats</span>
-     <span id="proficiencies-tab" class="tab">Proficiencies</span>
-     <span id="style-tab" class="tab">Style</span>
-     <span id="hp-tab" class="tab">HP</span>
-     <span id="spells-tab" class="tab">Spells</span>
-     <span id="equip-tab" class="tab">Equipment</span>
-     <span id="char-tab" class="tab rightTab">Info</span>
+     {newTab('Home', 'lefttab')}
+     {newTab('Race')}
+     {newTab('Class')}
+     {newTab('Background')}
+     {newTab('Stats')}
+     {newTab('Feats')}
+     {newTab('Proficiencies')}
+     {newTab('Misc')}
+     {newTab('Spells')}
+     {newTab('Equipment')}
+     {newTab('Info', 'righttab')}
     </nav>
-  )
+
+  return tabset
 }
 
 export {Tabs}
