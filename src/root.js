@@ -1,25 +1,38 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Tabs } from './tabs'
-import switchTabs from './state/actions/switchTabs'
+import Tab from './components/tab'
+import Container from './components/container'
 
 class Root extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {tab: 'Home'}
+  }
+
+  changeTabs = (name) => {
+    this.setState({ tab: name })
   }
 
   renderApp = () => {
     const app =
       <div id="wrapper">
-        <Tabs></Tabs>
+        <nav id="nav-tabs">
+         <Tab name="Home" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Race" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Class" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Background" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Stats" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Feats" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Proficiencies" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Misc" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Spells" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Equipment" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+         <Tab name="Info" clickHandler={this.changeTabs} activeTab={this.state.tab} />
+        </nav>
 
         <div id="app-container">
-          <p>Welcome to Archibald Eutrecer V's Dungeons & Dragons 5e character builder!  I, the
-          aforementioned Archibald, will be your wizard for this sojourn.  If you are new to this
-          process I suggest we begin by following the list below from top to bottom, however many
-          pieces of the character creation process can be done in any order, so feel free to
-          explore at your own pace if you wish!</p>
+          <Container contents={this.state.tab} />
+
         </div>
 
       </div>
@@ -37,6 +50,6 @@ const mapStateToProps = (state) => ({
   tab: state.app.tab
 })
 
-const mapDispatchToProps = {switchTabs}
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Root)
