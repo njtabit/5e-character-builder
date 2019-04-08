@@ -10,7 +10,7 @@ const firebase = initializeApp({
   messagingSenderId: "849989419879"
 })
 
-export const db = firebase.database()
+export const db = firebase.firestore()
 export const entries = db.ref('entries')
 
 entries.on('child_added', (e) => {

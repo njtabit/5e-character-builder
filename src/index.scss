@@ -1,12 +1,26 @@
 @import './scss/app-container';
 @import './scss/nav-tabs';
+@import './scss/filters';
 
 body {
   background-color: #5c5c5c;
+  font-size: 12px;
   color: #d0d0d0;
 }
 
 #wrapper {
-  width: 50%;
+  width: 66%;
   margin: 10px auto;
+}
+
+@media only screen and (min-width: 3800px) {
+  body {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 2500px) and (max-width: 3799px) {
+  body {
+    font-size: 24px;
+  }
 }

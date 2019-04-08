@@ -6,7 +6,7 @@ import Container from './components/container'
 class Root extends Component {
   constructor(props) {
     super(props)
-    this.state = {tab: 'Home'}
+    this.state = {tab: 'Race'} //'Home'} //Home should be default, anything else is for dev purposes
   }
 
   changeTabs = (name) => {

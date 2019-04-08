@@ -1,0 +1,24 @@
+.filters {
+  border: 1px solid #cdcdcd;
+  margin-bottom: 1em;
+
+  .source-type-filters {
+    padding: .25%;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid #cdcdcd;
+    font-size: .66em;
+  }
+
+  .source-books {
+    padding: .25%;
+    font-size: .85em;
+  }
+
+  .filter-option {
+    display: inline-block;
+    border: 1px solid #cdcdcd;
+    margin: .25%;
+    padding: .25%;
+  }
+}
