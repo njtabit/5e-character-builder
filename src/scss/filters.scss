@@ -1,16 +1,17 @@
 .filters {
   border: 1px solid #cdcdcd;
   margin-bottom: 1em;
+  user-select: none;
 
   .source-type-filters {
     padding: .25%;
     width: 100%;
     display: inline-block;
-    border-bottom: 1px solid #cdcdcd;
     font-size: .66em;
   }
 
   .source-books {
+    border-top: 1px solid #cdcdcd;
     padding: .25%;
     font-size: .85em;
   }
@@ -21,4 +22,66 @@
     margin: .25%;
     padding: .25%;
   }
+
+  .inactive {
+    background-color: red;
+  }
+
+  .exclusive {
+    background-color: purple;
+  }
+
+  .PSexclusive {
+    .ps {
+      display: inline-block;
+    }
+
+    :not(.ps) {
+      display: none;
+    }
+
+    &.UAexclusive {
+      .ua {
+        display: inline-block;
+      }
+    }
+  }
+
+  .UAexclusive {
+    .ua {
+      display: inline-block;
+    }
+
+    :not(.ua) {
+      display: none;
+    }
+
+    &.PSexclusive {
+      .ps {
+        display: inline-block;
+      }
+    }
+  }
+
+  /*.UAexclusive.PSexclusive > .ua, .UAexclusive.PSexclusive > .ps {
+    display: inline-block;
+  }*/
+
+  .PSinactive .ps {
+    display: none;
+  }
+
+  /*.PSexclusive > div:not(.ps) {
+    display: none;
+  }*/
+
+  .UAinactive .ua {
+    display: none;
+  }
+
+  /*.UAexclusive > div:not(.ua) {
+    display: none;
+  }*/
+
+
 }

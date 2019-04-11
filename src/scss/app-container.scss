@@ -12,6 +12,19 @@
     border: 1px solid #cdcdcd;
     float: right;
   }
+
+  .builder {
+
+    &.exclusives {
+      .active {
+        display: none;
+      }
+    }
+
+    .inactive {
+      display: none;
+    }
+  }
 }
 
 #app-container.mobile {

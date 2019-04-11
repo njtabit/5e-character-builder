@@ -30,7 +30,7 @@ class Container extends Component {
       Info
     }
     const Tab = tabs[this.props.contents]
-    return <Tab />
+    return <Tab toggle={this.props.toggle} filters={this.props.filters} />
   }
 }
 

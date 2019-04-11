@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
+import Toggle from './toggle'
 import { src } from '../lists/sources.json'
 
-const Filters = (props) => {
-  const [active, setActive] = useState([])
+export default (props) => {
 
   return <div className="filters">
     <div className="source-type-filters">
-      <div className="filter-option">Plane Shift</div>
-      <div className="filter-option">Unearthed Arcana</div>
+      <Toggle name="Plane Shift" active={props.filters['PS']} abbr="PS" toggle={props.toggle} />
+      <Toggle name="Unearthed Arcana" active={props.filters['UA']} abbr="UA" toggle={props.toggle} />
     </div>
-    <div className="source-books">
-      {props.srclist.map((source, i) => {
-        return <div key={'src' + i} className="filter-option">{src[source]}</div>
-      })}
+    <div className={'source-books PS' + props.filters['PS'] + ' UA' + props.filters['UA']} >
+      {
+        props.srclist.map( (source, i) => {
+          return <Toggle name={ src[source].name } active={ props.filters[source] } abbr={ source } toggle={ props.toggle } series={src[source].series || ''} />
+        })
+      }
     </div>
   </div>
 }
-
-export default Filters
