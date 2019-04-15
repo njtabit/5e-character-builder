@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { race } from '../../lists/races.json'
 import Filters from '../filters'
+import Selector from '../selector'
 
 class Race extends Component {
   handleClick = () => {
@@ -18,7 +19,7 @@ class Race extends Component {
         srcabbr.push(r.source)
       }
 
-      racelist.push(<div className={'select-box ' + r.source + ' ' + this.props.filters[r.source]} key={'race' + i} data-name={race[i].name}>{race[i].name}</div>)
+      racelist.push(<Selector source={r.source} filters={this.props.filters} key={'race' + i} name={race[i].name} />)
     })
 
     return <div>

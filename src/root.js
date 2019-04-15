@@ -8,12 +8,13 @@ class Root extends Component {
   constructor(props) {
     super(props)
     this.state = {tab: 'Race', //'Home' //Home should be default, anything else is for dev purposes
-      filters: {
-        PS: 'active',
-        UA: 'active'
+      filters: { // 0 = 'inactive', 1 = 'active' //, 2 = 'exclusive'
+        MISC: true,
+        PS: true,
+        UA: true
       }
     }
-    Object.keys(src).map((source) => { this.state.filters[source] = 'active' })
+    Object.keys(src).map((source) => { this.state.filters[source] = true })
 
     // The list of tabs to display across the top of the page
     this.tabs = ['Home', 'Race', 'Class', 'Background', 'Stats', 'Feats', 'Proficiencies', 'Misc', 'Spells', 'Equipment', 'Info']
@@ -25,22 +26,31 @@ class Root extends Component {
 
   // Checks what the current filter status is before cycling it.  If the status is 'exclusive' or toggled off of 'exclusive', change that state as well.
   filterToggle = (source) => {
-    const status = this.state.filters[source]
-    if (status === 'active') {
+    this.setState(
+      (prevState) => ({
+        filters: {
+          ...prevState.filters,
+          [source]: !prevState.filters[source]
+        }
+      })
+    )
+
+    //Content removed due to simplification of toggle system.  May be added back in if 'exclusive' state reenters.
+    /* if (status === 0) {
       this.setState(
         (prevState) => ({
           filters: {
             ...prevState.filters,
-            [source]: 'inactive'
+            [source]: 1
           }
         })
       )
-    } else if (status === 'inactive') {
+    } else if (status === 1) {
       this.setState(
         (prevState) => ({
           filters: {
             ...prevState.filters,
-            [source]: 'exclusive',
+            [source]: 2,
             exclusives: true
           }
         })
@@ -50,11 +60,11 @@ class Root extends Component {
         (prevState) => ({
           filters: {
             ...prevState.filters,
-            [source]: 'active',
+            [source]: 0
           }
         }),
         () => {
-          if (!Object.values(this.state.filters).includes('exclusive')) {
+          if (!Object.values(this.state.filters).includes(2)) {
             this.setState(
               (prevState) => ({
                 filters: {
@@ -66,7 +76,7 @@ class Root extends Component {
           }
         }
       )
-    }
+    } */
   }
 
   // Cycles through the tabs array and creates a Tab component for each, then adds the Container

@@ -12,7 +12,8 @@ export default (props) => {
     <div className={'source-books PS' + props.filters['PS'] + ' UA' + props.filters['UA']} >
       {
         props.srclist.map( (source, i) => {
-          return <Toggle name={ src[source].name } active={ props.filters[source] } abbr={ source } toggle={ props.toggle } series={src[source].series || ''} />
+          console.log((props.filters[src[source].series] && props.filters[source]))
+          return <Toggle name={ src[source].name } active={ (props.filters[src[source].series] && props.filters[source]) } abbr={ source } toggle={ props.toggle } series={src[source].series} />
         })
       }
     </div>
