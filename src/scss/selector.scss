@@ -1,6 +1,9 @@
 .select-box {
   display: inline-block;
   border: 1px solid #cdcdcd;
-  margin: 1em;
+  margin: 0.5em 2%;
+  padding: 1%;
+  min-width: 10%;
+  text-align: center;
   user-select: none;
 }

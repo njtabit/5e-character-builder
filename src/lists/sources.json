@@ -35,17 +35,19 @@
     "GGR": {"name": "Guildmasters' Guide to Ravnica", "series": "MISC"},
     "KKW": {"name": "Krenko's Way", "series": "MISC"},
     "LLK": {"name": "Lost Laboratory of Kwalish", "series": "MISC"},
-    "AL": {"name": "Adventurers' League", "series": "MISC"},
+    "AL": {"name": "Adventurers' League", "series": "self"},
     "SCREEN": {"name": "Dungeon Master's Screen", "series": "MISC"},
     "ALCoS": {"name": "Adventurer's League: Curse of Strahd", "series": "AL"},
     "ALEE": {"name": "Adventurer's League: Elemental Evil", "series": "AL"},
     "ALRoD": {"name": "Adventurer's League: Rage of Demons", "series": "AL"},
+    "PS": {"name": "Plane Shift", "series": "self"},
     "PSA": {"name": "Plane Shift: Amonkhet", "series": "PS"},
     "PSI": {"name": "Plane Shift: Innistrad", "series": "PS"},
     "PSK": {"name": "Plane Shift: Kaladesh", "series": "PS"},
     "PSZ": {"name": "Plane Shift: Zendikar", "series": "PS"},
     "PSX": {"name": "Plane Shift: Ixalan", "series": "PS"},
     "PSD": {"name": "Plane Shift: Dominaria", "series": "PS"},
+    "UA": {"name": "Unearthed Arcana", "series": "self"},
     "UAA": {"name": "Unearthed Arcana: Artificer", "series": "UA"},
     "UAEAG": {"name": "Unearthed Arcana: Eladrin and Gith", "series": "UA"},
     "UAEBB": {"name": "Unearthed Arcana: Eberron", "series": "UA"},
@@ -93,7 +95,9 @@
     "UAOSS": {"name": "Unearthed Arcana: Of Ships and the Sea", "series": "UA"},
     "UASIK": {"name": "Unearthed Arcana: Sidekicks", "series": "UA"},
     "UAAR": {"name": "Unearthed Arcana: Artificer Revisited", "series": "UA"},
+    "social": {"name": "Social Media", "series": "self"},
     "STREAM": {"name": "Livestream", "series": "social"},
-    "TWITTER": {"name": "Twitter", "series": "social"}
+    "TWITTER": {"name": "Twitter", "series": "social"},
+    "MISC": {"name": "Misc", "series": "self"}
   }
 }
