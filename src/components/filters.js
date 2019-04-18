@@ -7,13 +7,13 @@ export default (props) => {
   let seriesBlock = []
 
   props.srclist.map( (source, i) => {
-    srcBlock.push(<Toggle name={ src[source].name } active={ (props.filters[src[source].series] && props.filters[source]) } abbr={ source } toggle={ props.toggle } series={src[source].series} />)
+    srcBlock.push(<Toggle name={ src[source].name } key={ source } active={ (props.filters[src[source].series] && props.filters[source]) } abbr={ source } toggle={ props.toggle } series={src[source].series} />)
 
     if (!seriesBlock.includes(src[source].series)) { seriesBlock.push(src[source].series) }
   })
 
   seriesBlock.map( (series, i) => {
-    seriesBlock[i] = <Toggle name={src[series].name} active={props.filters[series]} abbr={series} toggle={props.toggle} />
+    seriesBlock[i] = <Toggle name={src[series].name} key={series} active={props.filters[series]} abbr={series} toggle={props.toggle} />
   })
 
   return <div className="filters">
