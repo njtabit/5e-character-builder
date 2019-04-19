@@ -95,9 +95,9 @@
     "UAOSS": {"name": "Unearthed Arcana: Of Ships and the Sea", "series": "UA"},
     "UASIK": {"name": "Unearthed Arcana: Sidekicks", "series": "UA"},
     "UAAR": {"name": "Unearthed Arcana: Artificer Revisited", "series": "UA"},
-    "social": {"name": "Social Media", "series": "self"},
-    "STREAM": {"name": "Livestream", "series": "social"},
-    "TWITTER": {"name": "Twitter", "series": "social"},
+    "SOCIAL": {"name": "Social Media", "series": "self"},
+    "STREAM": {"name": "Livestream", "series": "SOCIAL"},
+    "TWITTER": {"name": "Twitter", "series": "SOCIAL"},
     "MISC": {"name": "Misc", "series": "self"}
   }
 }

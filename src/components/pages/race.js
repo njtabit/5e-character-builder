@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { race } from '../../lists/races.json'
 import Filters from '../filters'
 import Selector from '../selector'
 
 export default (props) => {
+  const [viewing, setViewing] = useState('')
 
   let racelist = []
-  let sourcelist = []
-  let srcabbr = []
+  let srclist = []
+
+  const selectRace = (r) => {
+    setViewing(r)
+  }
 
   race.map((r, i) => {
 
-    if (!srcabbr.includes(r.source)) {
-
-      srcabbr.push(r.source)
+    if (!srclist.includes(r.source)) {
+      srclist.push(r.source)
     }
 
-    racelist.push(<Selector source={r.source} filters={props.filters} key={'race' + i} name={race[i].name} />)
+    racelist.push(<Selector source={r.source} filters={props.filters} select={ selectRace } key={'race' + i} name={race[i].name} index={i} />)
   })
 
   return <div>
-    <Filters srclist={srcabbr} toggle={props.toggle} filters={props.filters} />
-    <div className="infobox">Infobox</div>
-    <div className={'builder race' + (props.filters.exclusives?' exclusives':'')}>{racelist}</div>
+    <Filters srclist={srclist} toggle={props.toggle} filters={props.filters} />
+    <div className="infobox">{ viewing || 'Infobox' }</div>
+    <div className={'builder race'}>{racelist}</div>
   </div>
 }

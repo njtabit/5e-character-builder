@@ -20,7 +20,7 @@ export default (props) => {
     <div className="source-type-filters">
       { seriesBlock }
     </div>
-    <div className={'source-books PS' + props.filters['PS'] + ' UA' + props.filters['UA']} >
+    <div className={'source-books PS' + props.filters['PS'] + ' UA' + props.filters['UA'] + ' AL' + props.filters['AL'] + ' SOCIAL' + props.filters['SOCIAL'] + ' MISC' + props.filters['MISC']} >
       { srcBlock }
     </div>
   </div>

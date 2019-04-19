@@ -27,61 +27,15 @@
     background-color: red;
   }
 
-  .exclusive {
-    background-color: purple;
-  }
-
-  .PSexclusive {
-    .ps {
-      display: inline-block;
-    }
-
-    :not(.ps) {
-      display: none;
-    }
-
-    &.UAexclusive {
-      .ua {
-        display: inline-block;
-      }
-    }
-  }
-
-  .UAexclusive {
-    .ua {
-      display: inline-block;
-    }
-
-    :not(.ua) {
-      display: none;
-    }
-
-    &.PSexclusive {
-      .ps {
-        display: inline-block;
-      }
-    }
-  }
-
-  /*.UAexclusive.PSexclusive > .ua, .UAexclusive.PSexclusive > .ps {
-    display: inline-block;
-  }*/
-
   .PSfalse .ps {
     display: none;
   }
-
-  /*.PSexclusive > div:not(.ps) {
-    display: none;
-  }*/
 
   .UAfalse .ua {
     display: none;
   }
 
-  /*.UAexclusive > div:not(.ua) {
+  .MISCfalse .misc {
     display: none;
-  }*/
-
-
+  }
 }

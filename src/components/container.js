@@ -13,8 +13,8 @@ import Equipment from './pages/equip'
 import Info from './pages/info'
 
 export default (props) => {
-  
-  const [filters, setFilters] = useState( (v) => {
+
+  const [filters, setFilters] = useState( () => {
     let obj = {}
     Object.keys(src).map( (source) => {
       obj[source] = true
