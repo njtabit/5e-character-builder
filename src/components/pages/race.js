@@ -12,7 +12,6 @@ export default (props) => {
 
   const selectRace = (r) => {
     setViewing(r.index)
-    console.log(r.index)
   }
 
   race.map((r, i) => {
@@ -26,7 +25,7 @@ export default (props) => {
 
   return <div>
     <Filters srclist={srclist} toggle={props.toggle} filters={props.filters} />
-    <Info list={ race } viewing={ viewing } />
+    <Info list={ race } viewing={ race[viewing] } />
     <div className={'builder race'}>{racelist}</div>
   </div>
 }
