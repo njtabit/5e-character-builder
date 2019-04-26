@@ -36,7 +36,7 @@ export default (props) => {
     Info
   }
 
-  const Tab = tabs[props.contents]
+  const View = tabs[props.contents]
 
   const toggle = (source) => {
     setFilters(
@@ -48,5 +48,5 @@ export default (props) => {
     )
   }
 
-  return <Tab toggle={toggle} filters={filters} />
+  return <View toggle={toggle} filters={filters} />
 }
