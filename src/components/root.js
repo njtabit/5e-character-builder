@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Tab from './components/tab'
-import Container from './components/container'
+import Tab from './tab'
+import Container from './container'
 
 export default (props) => {
   const [tab, setTab] = useState('Race') //Home should be default, anything else is for dev purposes
@@ -27,6 +27,6 @@ export default (props) => {
       </div>
 
     </div>
-    
+
   return app
 }

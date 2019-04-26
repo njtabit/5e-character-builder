@@ -1,9 +1,9 @@
 import React from 'react'
 import Rdom from 'react-dom'
-import Root from './root'
+import Root from './components/root'
 import { Provider } from 'react-redux'
 import store from './state/store'
-import './index.scss'
+import './scss/index.scss'
 
 Rdom.render(
   <Provider store={store}>
