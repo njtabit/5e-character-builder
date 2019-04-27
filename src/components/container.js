@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { src } from '../lists/sources'
 import Home from './pages/home'
 import Race from './pages/race'
@@ -12,7 +13,7 @@ import Spells from './pages/spells'
 import Equipment from './pages/equip'
 import Info from './pages/info'
 
-export default (props) => {
+ const Container = (props) => {
 
   const [filters, setFilters] = useState( () => {
     let obj = {}
@@ -50,3 +51,9 @@ export default (props) => {
 
   return <View toggle={toggle} filters={filters} />
 }
+
+Container.propTypes = {
+  contents: PropTypes.string.isRequired
+}
+
+export default Container

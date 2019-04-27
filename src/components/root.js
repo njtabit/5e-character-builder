@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Tab from './tab'
 import Container from './container'
 
-export default (props) => {
+export default () => {
   const [tab, setTab] = useState('Race') //Home should be default, anything else is for dev purposes
 
   const tabs = ['Home', 'Race', 'Class', 'Background', 'Stats', 'Feats', 'Proficiencies', 'Misc', 'Spells', 'Equipment', 'Info']

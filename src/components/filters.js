@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Toggle from './toggle'
 import { src } from '../lists/sources.json'
 
-export default (props) => {
+const Filters = (props) => {
   let srcBlock = []
   let seriesBlock = []
 
-  props.srclist.map( (source, i) => {
+  props.srclist.map( (source) => {
     srcBlock.push(<Toggle name={ src[source].name } key={ source } active={ (props.filters[src[source].series] && props.filters[source]) } abbr={ source } toggle={ props.toggle } series={src[source].series} />)
 
     if (!seriesBlock.includes(src[source].series)) { seriesBlock.push(src[source].series) }
@@ -25,3 +26,11 @@ export default (props) => {
     </div>
   </div>
 }
+
+Filters.propTypes = {
+  srclist: PropTypes.array.isRequired,
+  toggle: PropTypes.func.isRequired,
+  filters: PropTypes.object.isRequired
+}
+
+export default Filters
