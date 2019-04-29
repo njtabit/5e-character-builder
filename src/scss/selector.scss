@@ -3,7 +3,11 @@
   border: 1px solid #cdcdcd;
   margin: 0.5em 2%;
   padding: 1%;
-  min-width: 10%;
+  min-width: 15%;
   text-align: center;
   user-select: none;
+
+  &.selected {
+    background-color: blue;
+  }
 }
