@@ -11,7 +11,7 @@ import Root from './components/root'
 import './scss/index.scss'
 
 Rdom.render(
-  <Store reducer={reducer} log={true}>
+  <Store reducer={reducer} initialValue={{tab: 'Race'}} log={true}>
     <Root />
   </Store>,
   document.getElementById('root')

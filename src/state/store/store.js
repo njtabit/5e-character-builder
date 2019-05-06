@@ -21,7 +21,7 @@ const Store = (props) => {
   useEffect( () => {
     if (props.log) {
       // eslint-disable-next-lne
-      console.log('State: ', state)
+      console.log('Store State: ', state)
     }
     publish(state)
   }, [state])
