@@ -14,7 +14,7 @@ function logAndDispatch(action) {
 
 // Store component
 const Store = (props) => {
-  const initialState = props.reducer(props.initialValue || {}, { type: '__INIT'})
+  const initialState = props.reducer(props.initialValue || {}, { type: '__INIT__'})
   const [state, dispatch] = useReducer(props.reducer, initialState)
 
   // for debugging
