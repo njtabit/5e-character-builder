@@ -14,7 +14,7 @@ const Filters = (props) => {
   })
 
   seriesBlock.map( (series, i) => {
-    seriesBlock[i] = <Toggle name={src[series].name} key={series} active={props.filters[series]} abbr={series} toggle={props.toggle} />
+    seriesBlock[i] = <Toggle name={src[series].name} key={series} active={props.filters[series]} abbr={series} toggle={props.toggle} series="self" />
   })
 
   return <div className="filters">
