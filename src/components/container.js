@@ -15,11 +15,11 @@ import Info from './pages/info'
 
 import useStore from '../state/store/useStore'
 
- const Container = () => {
+const Container = () => {
 
-  const [filters, setFilters] = useState( () => {
+  const [filters, setFilters] = useState(() => {
     let obj = {}
-    Object.keys(src).map( (source) => {
+    Object.keys(src).map((source) => {
       obj[source] = true
     })
     return obj
@@ -39,7 +39,7 @@ import useStore from '../state/store/useStore'
     Info
   }
 
-  const contents = useStore( state => state.miscReducer.tab, 'Race' )
+  const contents = useStore(state => state.miscReducer.tab, 'Race')
   const View = tabs[contents]
 
   const toggle = (source) => {
@@ -52,7 +52,58 @@ import useStore from '../state/store/useStore'
     )
   }
 
-  return <View toggle={toggle} filters={filters} />
+  const homeVisible = contents == 'Home' ? 'block' : 'none';
+  const raceVisible = contents == 'Race' ? 'block' : 'none';
+  const classVisible = contents == 'Class' ? 'block' : 'none';
+  const backgroundVisible = contents == 'Background' ? 'block' : 'none';
+  const statsVisible = contents == 'Stats' ? 'block' : 'none';
+  const featsVisible = contents == 'Feats' ? 'block' : 'none';
+  const proficienciesVisible = contents == 'Proficiencies' ? 'block' : 'none';
+  const miscVisible = contents == 'Misc' ? 'block' : 'none';
+  const spellsVisible = contents == 'Spells' ? 'block' : 'none';
+  const equipmentVisible = contents == 'Equipment' ? 'block' : 'none';
+  const infoVisible = contents == 'Info' ? 'block' : 'none';
+
+  console.log(homeVisible);
+
+  // return <View toggle={toggle} filters={filters} />
+  return (
+    <div>
+      <div style={{ display: homeVisible }}>
+        <Home toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: raceVisible }}>
+        <Race toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: classVisible }}>
+        <Class toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: backgroundVisible }}>
+        <Background toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: statsVisible }}>
+        <Stats toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: featsVisible }}>
+        <Feats toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: proficienciesVisible }}>
+        <Proficiencies toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: miscVisible }}>
+        <Misc toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: spellsVisible }}>
+        <Spells toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: equipmentVisible }}>
+        <Equipment toggle={toggle} filters={filters} />
+      </div>
+      <div style={{ display: infoVisible }}>
+        <Info toggle={toggle} filters={filters} />
+      </div>
+    </div>
+  );
 }
 
 /*
