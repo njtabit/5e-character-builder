@@ -10,6 +10,11 @@ export default (state = defaultState, action) => {
         ...state,
         tab: action.payload
       }
+    case 'SET_INFOBOX':
+      return {
+        ...state,
+        infobox: action.payload
+      }
 /*
     case '__INIT__':
       return {

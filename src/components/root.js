@@ -5,7 +5,7 @@ import Container from './container'
 import useStore from '../state/store/useStore'
 
 export default () => {
-  const tab = useStore( (state) => state.tab, 'Race' )
+  const tab = useStore( (state) => state.miscReducer.tab, 'Race' )
 
   const tabs = ['Home', 'Race', 'Class', 'Background', 'Stats', 'Feats', 'Proficiencies', 'Misc', 'Spells', 'Equipment', 'Info']
 
@@ -21,7 +21,7 @@ export default () => {
       </nav>
 
       <div id="app-container">
-        <Container contents={ tab } />
+        <Container />
       </div>
 
     </div>

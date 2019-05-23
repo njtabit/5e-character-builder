@@ -39,7 +39,7 @@ import useStore from '../state/store/useStore'
     Info
   }
 
-  const contents = useStore( (state) => state.tab, 'Race' )
+  const contents = useStore( state => state.miscReducer.tab, 'Race' )
   const View = tabs[contents]
 
   const toggle = (source) => {

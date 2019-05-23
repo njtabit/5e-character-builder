@@ -2,7 +2,7 @@
 import React from 'react'
 import Rdom from 'react-dom'
 import Store from './state/store/store'
-import reducer from './state/reducers/reducer'
+import rootReducer from './state/store/rootReducer'
 
 // components
 import Root from './components/root'
@@ -11,7 +11,7 @@ import Root from './components/root'
 import './scss/index.scss'
 
 Rdom.render(
-  <Store reducer={reducer} initialValue={{tab: 'Race'}} log={true}>
+  <Store reducer={rootReducer} log={true}>
     <Root />
   </Store>,
   document.getElementById('root')

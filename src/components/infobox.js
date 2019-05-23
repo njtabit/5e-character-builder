@@ -1,8 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import * as strFunc from '../functions/strings'
 
-const Infobox = (props) => {
+import useStore from '../state/store/useStore'
+
+const Infobox = () => {
 
 /*
   // First pass just created divs for everything in the race object
@@ -42,29 +43,27 @@ const Infobox = (props) => {
     }
   }
 
-  const race = props.viewing
-
+  const race = useStore( state => state.miscReducer.infobox, {} )
   const box = []
 
-  if (race.name) box.push(<h1 className="boxTitle">{ race.name }</h1>)
+  if (race) {
 
-  if (typeof race.speed === 'number') {
-    box.push(<p>Speed: { race.speed } </p>)
-  } else if (typeof race.speed === 'object') {
-    spreadObj(race.speed, ' speed', ' ft')
+    if (race.name) box.push(<h1 className="boxTitle">{ race.name }</h1>)
+
+    if (typeof race.speed === 'number') {
+      box.push(<p>Speed: { race.speed } </p>)
+    } else if (typeof race.speed === 'object') {
+      spreadObj(race.speed, ' speed', ' ft')
+    }
+
+    if (race.size) box.push(<p>Size: { race.size } </p>)
+
+    if (race.ability) spreadObj(race.ability)
+
+    if (race.darkvision) box.push(<p>Darkvision: { race.darkvision } </p>)
   }
 
-  if (race.size) box.push(<p>Size: { race.size } </p>)
-
-  if (race.ability) spreadObj(race.ability)
-
-  if (race.darkvision) box.push(<p>Darkvision: { race.darkvision } </p>)
-
   return <div className="infobox">{ box }</div>
-}
-
-Infobox.propTypes = {
-  viewing: PropTypes.object.isRequired
 }
 
 export default Infobox

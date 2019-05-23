@@ -1,12 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
+import useStore from '../../state/store/useStore'
 
-class Stats extends Component {
-  handleClick = () => {
-  }
+const Stats = () => {
+  const race = useStore( state => state.charReducer.race, false)
+  console.log('stats page', race)
 
-  render() {
-    return <p>Stats page</p>
-  }
+  return <p>{ '' + race.ability }</p>
 }
 
 export default Stats

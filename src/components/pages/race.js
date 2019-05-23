@@ -1,18 +1,41 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { race } from '../../lists/races.json'
 import Filters from '../filters'
 import Selector from '../selector'
 import Info from '../infobox'
 
+import useDispatch from '../../state/store/useDispatch'
+import useStore from '../../state/store/useStore'
+
+import setRace from '../../state/actions/character/setRace'
+import setInfobox from '../../state/actions/setInfobox'
+
 const Race = (props) => {
-  const [viewing, setViewing] = useState(0)
+  const dispatch = useDispatch()
+  const raceState = useStore( state => state.charReducer.race, false)
+  const [viewing, setViewing] = useState(race.indexOf(raceState))
+  console.log('raceState:', raceState)
 
   let racelist = []
   let srclist = []
 
+  useEffect(() => {
+    if (!raceState) {
+      setViewing(0)
+      setInfobox(race[0], dispatch)
+      setRace(race[0], dispatch)
+      console.log('If passed')
+    } // else {
+    //   console.log('effect else', race.indexOf(raceState))
+    //   setViewing(race.indexOf(raceState))
+    // }
+  })
+
   const selectRace = (r) => {
     setViewing(r.index)
+    setInfobox(race[r.index], dispatch)
+    setRace(race[r.index], dispatch)
   }
 
   race.map( (r, i) => {
