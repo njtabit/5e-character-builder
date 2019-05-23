@@ -25,22 +25,22 @@ const Container = () => {
     return obj
   })
 
-  const tabs = {
-    Home,
-    Race,
-    Class,
-    Background,
-    Stats,
-    Feats,
-    Proficiencies,
-    Misc,
-    Spells,
-    Equipment,
-    Info
-  }
+  // const tabs = {
+  //   Home,
+  //   Race,
+  //   Class,
+  //   Background,
+  //   Stats,
+  //   Feats,
+  //   Proficiencies,
+  //   Misc,
+  //   Spells,
+  //   Equipment,
+  //   Info
+  // }
 
   const contents = useStore(state => state.miscReducer.tab, 'Race')
-  const View = tabs[contents]
+  // const View = tabs[contents]
 
   const toggle = (source) => {
     setFilters(
@@ -63,8 +63,6 @@ const Container = () => {
   const spellsVisible = contents == 'Spells' ? 'block' : 'none';
   const equipmentVisible = contents == 'Equipment' ? 'block' : 'none';
   const infoVisible = contents == 'Info' ? 'block' : 'none';
-
-  console.log(homeVisible);
 
   // return <View toggle={toggle} filters={filters} />
   return (
@@ -105,11 +103,5 @@ const Container = () => {
     </div>
   );
 }
-
-/*
-Container.propTypes = {
-  contents: PropTypes.string.isRequired
-}
-*/
 
 export default Container
