@@ -1,6 +1,6 @@
 const defaultState = {
   tab: 'Race', // should be 'home' for production
-  character: {}
+  filters: {}
 }
 
 export default (state = defaultState, action) => {
@@ -15,14 +15,11 @@ export default (state = defaultState, action) => {
         ...state,
         infobox: action.payload
       }
-/*
-    case '__INIT__':
+    case 'SET_FILTERS':
       return {
         ...state,
-        tab: action.payload.tab,
-        character: action.payload.character
+        filters: action.payload
       }
-*/
     default:
       return state
   }

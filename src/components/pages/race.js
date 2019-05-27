@@ -15,21 +15,18 @@ const Race = (props) => {
   const dispatch = useDispatch()
   const raceState = useStore( state => state.charReducer.race, false)
   const [viewing, setViewing] = useState(race.indexOf(raceState))
-  console.log('raceState:', raceState)
 
   let racelist = []
   let srclist = []
 
+  // On first mount, just set values to 0
   useEffect(() => {
     if (!raceState) {
       setViewing(0)
       setInfobox(race[0], dispatch)
+      // Once ability for viewing and race to be set separately, maybe remove this line so we don't have a surprising number of Aarakocra characters
       setRace(race[0], dispatch)
-      console.log('If passed')
-    } // else {
-    //   console.log('effect else', race.indexOf(raceState))
-    //   setViewing(race.indexOf(raceState))
-    // }
+    }
   })
 
   const selectRace = (r) => {
@@ -48,7 +45,7 @@ const Race = (props) => {
   })
 
   return <div>
-    <Filters srclist={srclist} toggle={props.toggle} filters={props.filters} />
+    <Filters srclist={srclist} toggle={props.toggle} />
     <Info list={ race } viewing={ race[viewing] } />
     <div className={'builder race'}>{racelist}</div>
   </div>

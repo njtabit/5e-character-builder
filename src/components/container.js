@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-//import PropTypes from 'prop-types'
+import React from 'react'
 import { src } from '../lists/sources'
 import Home from './pages/home'
 import Race from './pages/race'
@@ -13,17 +12,19 @@ import Spells from './pages/spells'
 import Equipment from './pages/equip'
 import Info from './pages/info'
 
+import useDispatch from '../state/store/useDispatch'
 import useStore from '../state/store/useStore'
 
-const Container = () => {
+import setFilters from '../state/actions/setFilters'
 
-  const [filters, setFilters] = useState(() => {
-    let obj = {}
-    Object.keys(src).map((source) => {
-      obj[source] = true
-    })
-    return obj
+const Container = () => {
+  const dispatch = useDispatch()
+  let filters = {}
+  Object.keys(src).map((source) => {
+    filters[source] = true
   })
+  setFilters(filters, dispatch)
+  console.log('filters set', filters)
 
   // const tabs = {
   //   Home,

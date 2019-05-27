@@ -3,7 +3,6 @@ import useStore from '../../state/store/useStore'
 
 const Stats = () => {
   const race = useStore(state => state.charReducer.race, false)
-  console.log('stats page', race, typeof race)
 
   let stats
   if (typeof race === 'object') {
