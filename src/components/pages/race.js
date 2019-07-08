@@ -4,6 +4,7 @@ import { race } from '../../lists/races.json'
 import Filters from '../filters'
 import Selector from '../selector'
 import Info from '../infobox'
+import * as extras from '../../functions/extras'
 
 import useDispatch from '../../state/store/useDispatch'
 import useStore from '../../state/store/useStore'
@@ -43,6 +44,7 @@ const Race = (props) => {
 
     racelist.push(<Selector selected={ viewing === i } source={ r.source } filters={ props.filters } select={ selectRace } key={ 'race' + i } name={ race[i].name } index={ i } />)
   })
+  extras.fieldTypes(race)
 
   return <div>
     <Filters srclist={srclist} toggle={props.toggle} />

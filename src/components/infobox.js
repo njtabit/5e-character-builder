@@ -3,6 +3,8 @@ import * as strFunc from '../functions/strings'
 
 import useStore from '../state/store/useStore'
 
+import '../scss/infobox.scss'
+
 const Infobox = () => {
 
 /*
@@ -39,28 +41,45 @@ const Infobox = () => {
   // Third pass involves unique infoboxes for each page, may end up getting integrated into the page components themselves
   const spreadObj = (obj, keyAdd = '', valAdd = '') => {
     for (const key in obj) {
-      box.push(<p>{ strFunc.capitalize(key) + keyAdd }: { obj[key] + valAdd }</p>)
+      if (typeof obj[key] === 'object') {
+        spreadObj(obj[key])
+      } else {
+        box.push(<p>{ strFunc.capitalize(key) + keyAdd }: { obj[key] + valAdd }</p>)
+      }
     }
   }
 
   const race = useStore( state => state.miscReducer.infobox, {} )
   const box = []
+  const sizes = {S: 'Small', M: 'Medium', L: 'Large', V: 'Varies'}
 
   if (race) {
 
-    if (race.name) box.push(<h1 className="boxTitle">{ race.name }</h1>)
+    if (race.name) box.push(<h1 className="boxTitle" key={race.name}>{ race.name }</h1>)
 
-    if (typeof race.speed === 'number') {
-      box.push(<p>Speed: { race.speed } </p>)
-    } else if (typeof race.speed === 'object') {
+    if (typeof race.speed === 'object') {
       spreadObj(race.speed, ' speed', ' ft')
+    } else if (race.speed) {
+      box.push(<p>Speed: {race.speed}</p>)
     }
 
-    if (race.size) box.push(<p>Size: { race.size } </p>)
+    if (race.size) box.push(<p className="race-size">Size: { sizes[race.size] ? sizes[race.size] : race.size } </p>)
 
     if (race.ability) spreadObj(race.ability)
 
-    if (race.darkvision) box.push(<p>Darkvision: { race.darkvision } </p>)
+    if (race.darkvision) box.push(<p>Darkvision: { race.darkvision + ' ft'} </p>)
+
+    if (race.languageTags) box.push(<p>Languages: { race.languageTags.join(', ') } </p>)
+
+    if (race.traitTags) box.push(<p>Traits: { race.traitTags.join(', ') } </p>)
+
+    if (race.subraces) {
+      let srList = []
+      race.subraces.map( (sr) => {
+        if (sr.name) srList.push(sr.name)
+      })
+      box.push(<p>Subraces: { srList.join(', ') } </p>)
+    }
   }
 
   return <div className="infobox">{ box }</div>

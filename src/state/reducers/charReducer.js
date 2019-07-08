@@ -9,6 +9,13 @@ export default (state = defaultState, action) => {
         ...state,
         race: action.payload
       }
+
+    case 'SET_CLASS':
+      return {
+        ...state,
+        class: action.payload
+      }
+      
     default:
       return state
   }

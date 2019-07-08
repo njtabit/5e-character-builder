@@ -14,7 +14,6 @@ const Filters = (props) => {
 
   const dispatch = useDispatch()
   const filter = useStore( state => state.miscReducer.filters, {})
-  console.log('filters', filter)
 
   props.srclist.map( (source) => {
     const toggle = () => {
